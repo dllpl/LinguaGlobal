@@ -871,6 +871,34 @@ ul.footer_social li a i:hover {
 	color: #e52f37;
 }
 
+.add_palitra {
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	position: fixed;
+	outline: transparent;
+	background-color: rgb(255, 255, 255);
+	margin-bottom: 20px;
+	width: auto;
+	top: 94vh;
+	color: #e52f37;
+	height: auto;
+	margin-right: 20px;
+	margin-left: 20px;
+	border-radius: 20px;
+	padding: 4px 24px 4px 16px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+
 .hero-content{
 	position: relative;
 	z-index: 999;
@@ -921,7 +949,7 @@ ul.footer_social li a i:hover {
 input.register-input-home, select.register-input-home{
 	width: 100%!important;
     height: 52px!important;
-    padding-left: 11%!important;
+    padding-left: 5%!important;
     padding-right: 5%!important;
     margin-bottom: 15px!important;
     color: #555!important;
@@ -933,6 +961,9 @@ input.register-input-home, select.register-input-home{
 
 input.name-input-home{
     background: url('../images/input-user.png') no-repeat 12px 15px;
+}
+input.name-input-city {
+	background: url("../images/input-user-city.png") no-repeat 10px 15px;
 }
 
 input.name-email-home{
@@ -1987,6 +2018,14 @@ ul.benefits.white li i {
 /* 			             11. MEDIA QUERIES                    */
 /* ========================================================== */
 
+@media (max-width: 1440px) {
+
+	.add_palitra {
+		top: 92vh;
+	}
+
+}
+
 @media (max-width: 991px) {
 
 	.navbar-fixed-top {
@@ -2050,6 +2089,7 @@ ul.benefits.white li i {
 	    background-attachment: inherit;
 	}
 
+
 	.home-section-overlay{
 		opacity: 0.37;
 	}
@@ -2111,6 +2151,12 @@ ul.benefits.white li i {
 
 	.hero-img img{
 		max-width: 100%;
+	}
+
+}
+@media (max-width: 425px) {
+	.add_palitra {
+		display: none;
 	}
 
 }
