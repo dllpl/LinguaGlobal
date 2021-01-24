@@ -80,13 +80,14 @@ $(window).on('load', function(){
 	
 	$('#register-form-home').each( function(){
 		var form = $(this);
-		//form.validate();
+		form.validate();
 		form.submit(function(e) {
 			if (!e.isDefaultPrevented()) {
 				jQuery.post(this.action,{
-					'names':$('input[name="register_names_home"]').val(),
-					'email':$('input[name="register_email_home"]').val(),
-					'ticket':$('select[name="register_ticket_home"]').val(),
+					'names':$('input[name="nome"]').val(),
+					'city':$('input[name="city"]').val(),
+					'skype':$('select[name="skype"]').val(),
+					'phone':$('select[name="phone"]').val(),
 				},function(data){
 					form.fadeOut('fast', function() {
 						$(this).siblings('p.register_success_box_home').show();

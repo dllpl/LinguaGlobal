@@ -2009,6 +2009,10 @@ ul.benefits.white li i {
     background-color: #d9eef9;
 }
 
+.language:hover {
+	text-decoration: underline;
+}
+
 .carousel-indicators li.active{
     margin-bottom:3px; 
     background:#e52a3d;

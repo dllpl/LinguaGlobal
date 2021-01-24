@@ -1,36 +1,55 @@
 <?php
 
-$field_first_name = $_POST['names'];
+$field__name = trim($_POST['name']);
 
-$field_email = $_POST['email'];
+$field__city = trim($_POST['city']);
 
-$mail_to = 'to@email.com';
+$field__email = trim($_POST['email']);
 
-$subject = 'Message from a site visitor '.$field_first_name;
+$field__skype = trim($_POST['skype']);
 
-$body_message = 'From: '.$field_first_name."\n";
+$field__phone = trim($_POST['phone']);
 
-$body_message .= 'E-mail: '.$field_email."\n";
+$field__level = trim($_POST['level']);
 
-$headers = 'From: '.$field_email."\r\n";
 
-$headers .= 'Reply-To: '.$field_email."\r\n";
+if (strlen($field__name) > 15) {
+    die();
+} else if (strlen($field__city) > 30) {
+    die();
+} else if (strlen($field__email) > 30) {
+    die();
+} else if (strlen($field__skype) > 20) {
+    die();
+} else if (strlen($field__phone) > 30) {
+    die();
+} else if (strlen($field__level) > 30) {
+    die();
+}
 
-$mail_status = mail($mail_to, $subject, $body_message, $headers);
+if ($field__level === '1') {
+    $field__level = 'начальный';
+} else if ($field__level === '2') {
+    $field__level = 'уверенный';
+} else if ($field__level === '3') {
+    $field__level = 'продвинутый';
+}
+
+
+
+$mail_to = 'nikita03.1998@mail.ru';
+
+$subject = 'Новая заявка на бесплатный пробный урок от: '.$field__name;
+
+$body_message = 'Имя: '.$field__name."\n".'Город: '.$field__city."\n".'Почта: '.$field__email."\n".'Скайп: '.$field__skype."\n".'Телефон: '.$field__phone."\n".'Уровень английского: '.$field__level;
+
+$mail_status = mail($mail_to, $subject, $body_message);
 
 
 if ($mail_status) { ?>
 	<script language="javascript" type="text/javascript">
-		//alert('Thank you for the message. We will contact you shortly.');
-		window.location = 'index.html';
+		alert('Спасибо, мы успешно получили заявку и свяжемся с Вами, как можно скорее!');
+		window.location = '../index.html';
 	</script>
 <?php
 }
-else { ?>
-	<script language="javascript" type="text/javascript">
-		//alert('Message failed. Please, send an email to gordon@template-help.com');
-		window.location = 'index.html';
-	</script>
-<?php
-}
-?>
