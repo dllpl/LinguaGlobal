@@ -37,7 +37,7 @@ if ($field__level === '1') {
 
 
 
-$mail_to = 'nikita03.1998@mail.ru';
+$mail_to = 'linguaglobal@yandex.ru';
 
 $subject = 'Новая заявка на бесплатный пробный урок от: '.$field__name;
 
