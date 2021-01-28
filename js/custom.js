@@ -77,26 +77,25 @@ $(window).on('load', function(){
 	/* ========================================================== */
 	/*   Register Top Home Section                                */
 	/* ========================================================== */
-	
-	$('#register-form-home').each( function(){
-		var form = $(this);
-		form.validate();
-		form.submit(function(e) {
-			if (!e.isDefaultPrevented()) {
-				jQuery.post(this.action,{
-					'names':$('input[name="nome"]').val(),
-					'city':$('input[name="city"]').val(),
-					'skype':$('select[name="skype"]').val(),
-					'phone':$('select[name="phone"]').val(),
-				},function(data){
-					form.fadeOut('fast', function() {
-						$(this).siblings('p.register_success_box_home').show();
-					});
-				});
-				e.preventDefault();
+
+	$( "#register-form-home" ).submit(function(e) {
+		e.preventDefault();
+		var fData = $(this).serialize();
+		console.log(fData)
+		$.ajax({
+			url: '/php/register.php',
+			method: 'post',
+			dataType: 'html',
+			data: fData,
+			success: function(){
+				if (1) {
+						alert('Спасибо, мы получили вашу заявку!')
+				} else alert('Ошибка заполнения формы!')
 			}
 		});
-	})		
+
+	});
+
 	
 
 	/* ========================================================== */
